@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -26,22 +25,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+     debugShowCheckedModeBanner: false,
       theme: _isDarkMode
           ? ThemeData.dark().copyWith(
-              primaryColor: Colors.blueGrey,
               scaffoldBackgroundColor: Colors.black,
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.black,
               ),
             )
-          : ThemeData.light().copyWith(
-              primaryColor: Colors.blue,
-              appBarTheme: const AppBarTheme(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-              ),
-            ),
+          : ThemeData.light(),
       home: DialerScreen(
         toggleTheme: _toggleTheme,
         isDarkMode: _isDarkMode,
@@ -69,7 +61,6 @@ class _DialerScreenState extends State<DialerScreen> {
 
   @override
   void initState() {
-
     super.initState();
   }
 
